@@ -1,0 +1,876 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{03C08731-ADE8-4E06-9F8E-35A3BB15B488}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ExpenseTrackerGUI</RootNamespace>
+    <AssemblyName>ExpenseTrackerGUI</AssemblyName>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Output\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BitMiracle.LibTiff.NET, Version=2.4.649.0, Culture=neutral, PublicKeyToken=53879b3e20e7a7d6, processorArchitecture=MSIL">
+      <HintPath>..\ExpenseTracker\packages\BitMiracle.LibTiff.NET.2.4.649\lib\net40\BitMiracle.LibTiff.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="IronSoftware.Drawing.Common, Version=2024.3.0.4, Culture=neutral, PublicKeyToken=8d7e55c97b3e9835, processorArchitecture=MSIL">
+      <HintPath>..\ExpenseTracker\packages\IronSoftware.System.Drawing.2024.3.4\lib\netstandard2.0\IronSoftware.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df" />
+    <Reference Include="LiveCharts.WinForms, Version=0.9.7.1, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\ExpenseTracker\packages\LiveCharts.WinForms.0.9.7.1\lib\net45\LiveCharts.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df" />
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\ExpenseTracker\packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\ExpenseTracker\packages\Microsoft.Extensions.Configuration.6.0.0\lib\net461\Microsoft.Extensions.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\ExpenseTracker\packages\Microsoft.Extensions.Configuration.Abstractions.6.0.0\lib\net461\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Binder, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\ExpenseTracker\packages\Microsoft.Extensions.Configuration.Binder.6.0.0\lib\net461\Microsoft.Extensions.Configuration.Binder.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.FileExtensions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\ExpenseTracker\packages\Microsoft.Extensions.Configuration.FileExtensions.6.0.0\lib\net461\Microsoft.Extensions.Configuration.FileExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\ExpenseTracker\packages\Microsoft.Extensions.Configuration.Json.6.0.0\lib\net461\Microsoft.Extensions.Configuration.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Abstractions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\ExpenseTracker\packages\Microsoft.Extensions.FileProviders.Abstractions.6.0.0\lib\net461\Microsoft.Extensions.FileProviders.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Physical, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\ExpenseTracker\packages\Microsoft.Extensions.FileProviders.Physical.6.0.0\lib\net461\Microsoft.Extensions.FileProviders.Physical.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileSystemGlobbing, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\ExpenseTracker\packages\Microsoft.Extensions.FileSystemGlobbing.6.0.0\lib\net461\Microsoft.Extensions.FileSystemGlobbing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\ExpenseTracker\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\lib\net461\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\ExpenseTracker\packages\Microsoft.Extensions.Primitives.6.0.0\lib\net461\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\ExpenseTracker\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="SixLabors.Fonts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d998eea7b14cab13, processorArchitecture=MSIL">
+      <HintPath>..\ExpenseTracker\packages\SixLabors.Fonts.1.0.0\lib\netstandard2.0\SixLabors.Fonts.dll</HintPath>
+    </Reference>
+    <Reference Include="SixLabors.ImageSharp, Version=2.0.0.0, Culture=neutral, PublicKeyToken=d998eea7b14cab13, processorArchitecture=MSIL">
+      <HintPath>..\ExpenseTracker\packages\SixLabors.ImageSharp.2.1.7\lib\net472\SixLabors.ImageSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="SixLabors.ImageSharp.Drawing, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d998eea7b14cab13, processorArchitecture=MSIL">
+      <HintPath>..\ExpenseTracker\packages\SixLabors.ImageSharp.Drawing.1.0.0\lib\net472\SixLabors.ImageSharp.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\ExpenseTracker\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\ExpenseTracker\packages\System.Configuration.ConfigurationManager.6.0.0\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\ExpenseTracker\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\ExpenseTracker\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\ExpenseTracker\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\ExpenseTracker\packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\ExpenseTracker\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.AccessControl, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\ExpenseTracker\packages\System.Security.AccessControl.6.0.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\ExpenseTracker\packages\System.Security.Cryptography.Algorithms.4.3.1\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\ExpenseTracker\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\ExpenseTracker\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Permissions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\ExpenseTracker\packages\System.Security.Permissions.6.0.0\lib\net461\System.Security.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\ExpenseTracker\packages\System.Security.Principal.Windows.5.0.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Text.Encoding.CodePages, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\ExpenseTracker\packages\System.Text.Encoding.CodePages.5.0.0\lib\net461\System.Text.Encoding.CodePages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\ExpenseTracker\packages\System.Text.Encodings.Web.6.0.0\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\ExpenseTracker\packages\System.Text.Json.6.0.0\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\ExpenseTracker\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\ExpenseTracker\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Account\Account.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Account\Account.Designer.cs">
+      <DependentUpon>Account.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Account\AccountTemplate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Account\AccountTemplate.Designer.cs">
+      <DependentUpon>AccountTemplate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Account\CategoryReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Account\CategoryReport.Designer.cs">
+      <DependentUpon>CategoryReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ExportToCSV.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Account\ExportToCSV.Designer.cs">
+      <DependentUpon>ExportToCSV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Account\WalkThrough.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Account\WalkThrough.Designer.cs">
+      <DependentUpon>WalkThrough.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Budget\AddBudget.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Budget\AddBudget.Designer.cs">
+      <DependentUpon>AddBudget.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Budget\BudgetPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Budget\BudgetPage.Designer.cs">
+      <DependentUpon>BudgetPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Budget\CurveButtons.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Budget\CurveButtons.Designer.cs">
+      <DependentUpon>CurveButtons.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Budget\ModifyBudget.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Budget\ModifyBudget.Designer.cs">
+      <DependentUpon>ModifyBudget.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Budget\Pagination.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Budget\Pagination.Designer.cs">
+      <DependentUpon>Pagination.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Budget\ProgressBarUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Budget\ProgressBarUserControl.Designer.cs">
+      <DependentUpon>ProgressBarUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Category Operations\BranchControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Category Operations\BranchControl.Designer.cs">
+      <DependentUpon>BranchControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Category Operations\CategorySearchBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Category Operations\CategorySearchBar.Designer.cs">
+      <DependentUpon>CategorySearchBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Category Operations\CategoryView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Category Operations\CategoryView.Designer.cs">
+      <DependentUpon>CategoryView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Category Operations\CurveButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Category Operations\CurveButton.Designer.cs">
+      <DependentUpon>CurveButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Category Operations\DeleteCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Category Operations\DeleteCategory.Designer.cs">
+      <DependentUpon>DeleteCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Category Operations\MainCategoryView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Category Operations\MainCategoryView.Designer.cs">
+      <DependentUpon>MainCategoryView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Category Operations\ModifyCategory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Category Operations\ModifyCategory.Designer.cs">
+      <DependentUpon>ModifyCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Category Operations\ParentView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Category Operations\ParentView.Designer.cs">
+      <DependentUpon>ParentView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Category Operations\ToggleButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Category Operations\ToggleButton.Designer.cs">
+      <DependentUpon>ToggleButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Category Operations\TreeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Category Operations\TreeControl.Designer.cs">
+      <DependentUpon>TreeControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Budget\BudgetSquare.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Budget\BudgetSquare.Designer.cs">
+      <DependentUpon>BudgetSquare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form3.Designer.cs">
+      <DependentUpon>Form3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form4.Designer.cs">
+      <DependentUpon>Form4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home\HomeDashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Home\HomeDashboard.Designer.cs">
+      <DependentUpon>HomeDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUIStyles.cs" />
+    <Compile Include="Home\CardPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Home\CardPanel.Designer.cs">
+      <DependentUpon>CardPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home\SearchControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Home\SearchControl.Designer.cs">
+      <DependentUpon>SearchControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home\SeeReports.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Home\SeeReports.Designer.cs">
+      <DependentUpon>SeeReports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home\TransactionShowControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Home\TransactionShowControl.Designer.cs">
+      <DependentUpon>TransactionShowControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterestCalculator.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterestCalculator.Designer.cs">
+      <DependentUpon>InterestCalculator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login\LoadingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\LoadingForm.Designer.cs">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login\LoginPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Login\LoginPage.Designer.cs">
+      <DependentUpon>LoginPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login\MovingLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Login\MovingLabel.Designer.cs">
+      <DependentUpon>MovingLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login\PlaceHolderTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Login\TextBoxU.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Login\TextBoxU.designer.cs">
+      <DependentUpon>TextBoxU.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home\Rating.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Home\Rating.Designer.cs">
+      <DependentUpon>Rating.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Budget\SingleWallet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Budget\SingleWallet.Designer.cs">
+      <DependentUpon>SingleWallet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transactioon Operation\Calculator.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transactioon Operation\Calculator.Designer.cs">
+      <DependentUpon>Calculator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transactioon Operation\CountryData.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transactioon Operation\CountryData.Designer.cs">
+      <DependentUpon>CountryData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transactioon Operation\CreateTransaction.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transactioon Operation\CreateTransaction.Designer.cs">
+      <DependentUpon>CreateTransaction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transactioon Operation\CurrencyConverter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transactioon Operation\CurrencyConverter.Designer.cs">
+      <DependentUpon>CurrencyConverter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transactioon Operation\DateCategory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transactioon Operation\DateCategory.Designer.cs">
+      <DependentUpon>DateCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transactioon Operation\NameTransaction.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transactioon Operation\NameTransaction.Designer.cs">
+      <DependentUpon>NameTransaction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transactioon Operation\Notification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transactioon Operation\Notification.Designer.cs">
+      <DependentUpon>Notification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transactioon Operation\EditTransaction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transactioon Operation\EditTransaction.Designer.cs">
+      <DependentUpon>EditTransaction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Transactioon Operation\TransactionEditor.cs" />
+    <Compile Include="Transactioon Operation\TransactionManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transactioon Operation\TransactionManager.Designer.cs">
+      <DependentUpon>TransactionManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transactioon Operation\ViewCategory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transactioon Operation\ViewCategory.Designer.cs">
+      <DependentUpon>ViewCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transactioon Operation\ViewIndividual.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transactioon Operation\ViewIndividual.Designer.cs">
+      <DependentUpon>ViewIndividual.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transactioon Operation\ViewTransaction.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transactioon Operation\ViewTransaction.Designer.cs">
+      <DependentUpon>ViewTransaction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Wallet\ChangeWallet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Wallet\ChangeWallet.Designer.cs">
+      <DependentUpon>ChangeWallet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Wallet\ModifyWallet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Wallet\ModifyWallet.Designer.cs">
+      <DependentUpon>ModifyWallet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Wallet\SelectWallet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Wallet\SelectWallet.Designer.cs">
+      <DependentUpon>SelectWallet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Wallet\WalletCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Wallet\WalletCard.Designer.cs">
+      <DependentUpon>WalletCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Wallet\WalletView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Wallet\WalletView.Designer.cs">
+      <DependentUpon>WalletView.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Account\Account.resx">
+      <DependentUpon>Account.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Account\AccountTemplate.resx">
+      <DependentUpon>AccountTemplate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Account\CategoryReport.resx">
+      <DependentUpon>CategoryReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Account\ExportToCSV.resx">
+      <DependentUpon>ExportToCSV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Account\WalkThrough.resx">
+      <DependentUpon>WalkThrough.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Budget\AddBudget.resx">
+      <DependentUpon>AddBudget.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Budget\BudgetPage.resx">
+      <DependentUpon>BudgetPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Budget\CurveButtons.resx">
+      <DependentUpon>CurveButtons.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Budget\ModifyBudget.resx">
+      <DependentUpon>ModifyBudget.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Budget\Pagination.resx">
+      <DependentUpon>Pagination.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Budget\ProgressBarUserControl.resx">
+      <DependentUpon>ProgressBarUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Budget\SingleWallet.resx">
+      <DependentUpon>SingleWallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Category Operations\BranchControl.resx">
+      <DependentUpon>BranchControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Category Operations\CategorySearchBar.resx">
+      <DependentUpon>CategorySearchBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Category Operations\CategoryView.resx">
+      <DependentUpon>CategoryView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Category Operations\CurveButton.resx">
+      <DependentUpon>CurveButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Category Operations\DeleteCategory.resx">
+      <DependentUpon>DeleteCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Category Operations\MainCategoryView.resx">
+      <DependentUpon>MainCategoryView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Category Operations\ModifyCategory.resx">
+      <DependentUpon>ModifyCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Category Operations\ParentView.resx">
+      <DependentUpon>ParentView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Category Operations\ToggleButton.resx">
+      <DependentUpon>ToggleButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Category Operations\TreeControl.resx">
+      <DependentUpon>TreeControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Budget\BudgetSquare.resx">
+      <DependentUpon>BudgetSquare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form3.resx">
+      <DependentUpon>Form3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form4.resx">
+      <DependentUpon>Form4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home\HomeDashboard.resx">
+      <DependentUpon>HomeDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home\AddPanel.resx" />
+    <EmbeddedResource Include="Home\CardPanel.resx">
+      <DependentUpon>CardPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home\SearchControl.resx">
+      <DependentUpon>SearchControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home\SeeReports.resx">
+      <DependentUpon>SeeReports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home\TransactionShowControl.resx">
+      <DependentUpon>TransactionShowControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterestCalculator.resx">
+      <DependentUpon>InterestCalculator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\LoadingForm.resx">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\LoginPage.resx">
+      <DependentUpon>LoginPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\MovingLabel.resx">
+      <DependentUpon>MovingLabel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\TextBoxU.resx">
+      <DependentUpon>TextBoxU.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home\Rating.resx">
+      <DependentUpon>Rating.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transactioon Operation\Calculator.resx">
+      <DependentUpon>Calculator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transactioon Operation\CountryData.resx">
+      <DependentUpon>CountryData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transactioon Operation\CreateTransaction.resx">
+      <DependentUpon>CreateTransaction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transactioon Operation\CurrencyConverter.resx">
+      <DependentUpon>CurrencyConverter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transactioon Operation\DateCategory.resx">
+      <DependentUpon>DateCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transactioon Operation\NameTransaction.resx">
+      <DependentUpon>NameTransaction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transactioon Operation\Notification.resx">
+      <DependentUpon>Notification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transactioon Operation\EditTransaction.resx">
+      <DependentUpon>EditTransaction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transactioon Operation\TransactionManager.resx">
+      <DependentUpon>TransactionManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transactioon Operation\ViewCategory.resx">
+      <DependentUpon>ViewCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transactioon Operation\ViewIndividual.resx">
+      <DependentUpon>ViewIndividual.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transactioon Operation\ViewTransaction.resx">
+      <DependentUpon>ViewTransaction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wallet\ChangeWallet.resx">
+      <DependentUpon>ChangeWallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wallet\ModifyWallet.resx">
+      <DependentUpon>ModifyWallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wallet\SelectWallet.resx">
+      <DependentUpon>SelectWallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wallet\WalletCard.resx">
+      <DependentUpon>WalletCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wallet\WalletIconChange.resx" />
+    <EmbeddedResource Include="Wallet\WalletView.resx">
+      <DependentUpon>WalletView.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ExpenseTrackerDS\ExpenseTrackerDS.csproj">
+      <Project>{a31fecfa-28b4-4942-9523-7724c9d22f8c}</Project>
+      <Name>ExpenseTrackerDS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExpenseTracker\ExpenseTracker.csproj">
+      <Project>{ebbd1e15-ca7a-47bb-abdf-ce5b13790448}</Project>
+      <Name>ExpenseTracker</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\trash_bin_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\pencil_edit_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trashbin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="ResourceImages\addtransaction.png" />
+    <Content Include="ResourceImages\Ball.png" />
+    <Content Include="ResourceImages\Bills &amp; Utilities.png" />
+    <Content Include="ResourceImages\Bills.png" />
+    <Content Include="ResourceImages\Collect Interest.png" />
+    <Content Include="ResourceImages\createtransaction.png" />
+    <Content Include="ResourceImages\downarrow.png" />
+    <Content Include="ResourceImages\downarrow2.png" />
+    <Content Include="ResourceImages\Drinks.png" />
+    <Content Include="ResourceImages\Edit.png" />
+    <Content Include="ResourceImages\Edit1.png" />
+    <Content Include="ResourceImages\edittransaction.png" />
+    <Content Include="ResourceImages\Education.png" />
+    <Content Include="ResourceImages\Electricity bill.png" />
+    <Content Include="ResourceImages\Entertainment.png" />
+    <Content Include="ResourceImages\Expense.png" />
+    <Content Include="ResourceImages\expenseimg.png" />
+    <Content Include="ResourceImages\Family.png" />
+    <Content Include="ResourceImages\Fitness.png" />
+    <Content Include="ResourceImages\Food &amp; Beverage.png" />
+    <Content Include="ResourceImages\Fun Money.png" />
+    <Content Include="ResourceImages\Gas bill.png" />
+    <Content Include="ResourceImages\Gift &amp; Donations.png" />
+    <Content Include="ResourceImages\Gifts.png" />
+    <Content Include="ResourceImages\Gpay.png" />
+    <Content Include="ResourceImages\Health &amp; Fitness.png" />
+    <Content Include="ResourceImages\Health.png" />
+    <Content Include="ResourceImages\Home Maintenance.png" />
+    <Content Include="ResourceImages\Home Services.png" />
+    <Content Include="ResourceImages\Home.png" />
+    <Content Include="ResourceImages\Houseware.png" />
+    <Content Include="ResourceImages\income.png" />
+    <Content Include="ResourceImages\Incoming transfer.png" />
+    <Content Include="ResourceImages\Insurances.png" />
+    <Content Include="ResourceImages\Internet Bill.png" />
+    <Content Include="ResourceImages\Investment.png" />
+    <Content Include="ResourceImages\Limitcrossed.png" />
+    <Content Include="ResourceImages\Maintenance.png" />
+    <Content Include="ResourceImages\Makeup.png" />
+    <Content Include="ResourceImages\Medical Check-up.png" />
+    <Content Include="ResourceImages\Money transfer.png" />
+    <Content Include="ResourceImages\Money.png" />
+    <Content Include="ResourceImages\Other Expense.png" />
+    <Content Include="ResourceImages\Other Income.png" />
+    <Content Include="ResourceImages\Other Utility Bills.png" />
+    <Content Include="ResourceImages\Outgoing transfer.png" />
+    <Content Include="ResourceImages\Pay Interest.png" />
+    <Content Include="ResourceImages\Personal items.png" />
+    <Content Include="ResourceImages\Pet.png" />
+    <Content Include="ResourceImages\Pets.png" />
+    <Content Include="ResourceImages\Phone bill.png" />
+    <Content Include="ResourceImages\Rentals.png" />
+    <Content Include="ResourceImages\Revenue.png" />
+    <Content Include="ResourceImages\Salary.png" />
+    <Content Include="ResourceImages\Shopping.png" />
+    <Content Include="ResourceImages\Spoon.png" />
+    <Content Include="ResourceImages\Streaming service.png" />
+    <Content Include="ResourceImages\Taxi.png" />
+    <Content Include="ResourceImages\Television Bill.png" />
+    <Content Include="ResourceImages\transactionhistory.png" />
+    <Content Include="ResourceImages\Transportation.png" />
+    <Content Include="ResourceImages\Trash.png" />
+    <Content Include="ResourceImages\Trash1.png" />
+    <Content Include="ResourceImages\Trash2.png" />
+    <Content Include="ResourceImages\uparrow.png" />
+    <Content Include="ResourceImages\Utility bill.png" />
+    <Content Include="ResourceImages\Vehicle Maintenance.png" />
+    <Content Include="ResourceImages\Water Bill.png" />
+    <Content Include="ResourceImages\Water bills.png" />
+    <Content Include="Resources\account.png" />
+    <Content Include="Resources\account1.png" />
+    <Content Include="Resources\add.png" />
+    <Content Include="Resources\add2.png" />
+    <Content Include="Resources\back1.png" />
+    <Content Include="Resources\back2.png" />
+    <Content Include="Resources\back3.png" />
+    <Content Include="Resources\bluepencil_azul_12512.png" />
+    <Content Include="Resources\budget1.png" />
+    <Content Include="Resources\budget2.png" />
+    <Content Include="Resources\budget3.png" />
+    <Content Include="Resources\category1.png" />
+    <Content Include="Resources\category2.png" />
+    <Content Include="Resources\category3.png" />
+    <None Include="Resources\Dotted_Loader.gif" />
+    <None Include="Resources\Dotted_Loader_2.gif" />
+    <None Include="Resources\Time.png" />
+    <None Include="Resources\Time1.png" />
+    <Content Include="Resources\wallet4.png" />
+    <Content Include="Resources\wallet5.png" />
+    <None Include="Resources\gradient.png" />
+    <None Include="Resources\gradient1.png" />
+    <Content Include="Resources\category4.png" />
+    <Content Include="Resources\home1.png" />
+    <Content Include="Resources\home2.png" />
+    <Content Include="Resources\home3.png" />
+    <Content Include="Resources\icons8-add-96.png" />
+    <Content Include="Resources\icons8-budget-100.png" />
+    <Content Include="Resources\icons8-budget-96.png" />
+    <None Include="Resources\icons8-edit-file-100.png" />
+    <None Include="Resources\login.png" />
+    <None Include="Resources\Login-3.jpg" />
+    <Content Include="Resources\icons8-x-48 %281%29.png" />
+    <Content Include="Resources\icons8-x-48.png" />
+    <Content Include="Resources\Image1.png" />
+    <Content Include="Resources\next1.png" />
+    <Content Include="Resources\next2.png" />
+    <Content Include="Resources\next3.png" />
+    <Content Include="Resources\QuestionMark.png" />
+    <Content Include="Resources\rename1.png" />
+    <Content Include="Resources\rename2.png" />
+    <Content Include="Resources\rename3.png" />
+    <Content Include="Resources\search1.png" />
+    <Content Include="Resources\search2.png" />
+    <Content Include="Resources\showmenu.png" />
+    <Content Include="Resources\showmenu2.png" />
+    <Content Include="Resources\trash.jpg" />
+    <Content Include="Resources\trash2.png" />
+    <Content Include="Resources\wallet.png" />
+    <Content Include="Resources\wallet1.png" />
+    <Content Include="Resources\wallet2.png" />
+    <Content Include="Resources\wallet3.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\ExpenseTracker\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets" Condition="Exists('..\ExpenseTracker\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\ExpenseTracker\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\ExpenseTracker\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets'))" />
+    <Error Condition="!Exists('..\ExpenseTracker\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\ExpenseTracker\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets'))" />
+  </Target>
+  <Import Project="..\ExpenseTracker\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets" Condition="Exists('..\ExpenseTracker\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets')" />
+</Project>
